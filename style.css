@@ -409,9 +409,19 @@ h1, h2, h3, h4, h5, h6, p {
   margin-bottom: 10px;
 }
 
-.list__item.active p {
-  display: block;
+.list__item-text {
+  color: #999999;
+  font-style: italic;
+  padding: 15px;
+  max-height: 170px;
   line-height: 1.7;
+  overflow: auto;
+  transition: all .5s;
+}
+
+.list__item-text.hidden {
+  max-height: 0;
+  padding: 0 15px;
 }
 
 .list__item-title {
@@ -445,18 +455,13 @@ h1, h2, h3, h4, h5, h6, p {
   cursor: pointer;
 }
 
-.list__item.active h3:after {
-  transform: rotate(135deg);
-  top: 27px;
+h3:after {
+  transition: transform .5s;
 }
 
-.list__item p {
-  display: none;
-  color: #999999;
-  font-style: italic;
-  padding: 15px;
-  max-height: 170px;
-  overflow: auto;
+.list__item.visible h3:after {
+  transform: rotate(135deg);
+  top: 27px;
 }
 
 /* Section 5 - Review */
@@ -718,7 +723,6 @@ h1, h2, h3, h4, h5, h6, p {
 .people-text:before {
   content: "";
   display: block;
-  vertical-align: middle;
   margin: 20px 0 30px;
   width: 60px;
   height: 3px;
@@ -921,6 +925,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .instagram__image {
   border: 1px #ccc solid;
+  cursor: pointer;
 }
 
 .instagram__image img {
